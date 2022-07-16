@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "commonjs",
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": [
+        "./components/*"
+      ],
+      "@context/*": [
+        "./contexts/*"
+      ],
+      "@utils/*": [
+        "./utils/*"
+      ],
+      "@data/*": [
+        "./utils/Data/*"
+      ],
+      "@theme/*": [
+        "./theme/*"
+      ],
+      "@sections/*": [
+        "./sections/*"
+      ],
+      "@static/*": [
+        "./public/*"
+      ]
+    }
+  },
+  "exclude": [
+    ".next",
+    "node_modules",
+    "**/node_modules/*",
+    "**/assets/*",
+    "**/build/*"
+  ]
+}
