@@ -83,16 +83,20 @@ export const kanbanGrid = [
 
   { headerText: "Done", keyField: "Close", allowToggle: true },
 ];
-const gridEmployeeProfile = (props) => (
-  <div className="flex items-center gap-2">
-    <img
-      className="rounded-full w-10 h-10"
-      src={props.EmployeeImage}
-      alt="employee"
-    />
-    <p>{props.Name}</p>
-  </div>
-);
+const gridEmployeeProfile = (props) => {
+  console.log(props);
+  return (
+    <div className="flex items-center gap-2">
+      <img
+        className="rounded-full"
+        style={{ width: "40px", height: "40px" }}
+        src={props.EmployeeImage.src}
+        alt="employee"
+      />
+      <p>{props.Name}</p>
+    </div>
+  );
+};
 
 const gridEmployeeCountry = (props) => (
   <div className="flex items-center justify-center gap-2">
@@ -149,8 +153,9 @@ export const EditorData = () => (
 const customerGridImage = (props) => (
   <div className="image flex gap-4">
     <img
-      className="rounded-full w-10 h-10"
-      src={props.CustomerImage}
+      className="rounded-full"
+      style={{ width: "40px", heigth: "40px" }}
+      src={props.CustomerImage.src}
       alt="employee"
     />
     <div>
