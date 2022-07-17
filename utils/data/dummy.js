@@ -43,26 +43,31 @@ import product5 from "@static/images/product5.jpg";
 import product6 from "@static/images/product6.jpg";
 import product7 from "@static/images/product7.jpg";
 import product8 from "@static/images/product8.jpg";
+import Image from "next/image";
 
 export const gridOrderImage = (props) => (
   <div>
     <img
-      className="rounded-xl h-20 md:ml-3"
-      src={props.ProductImage}
+      className="rounded-xl w-20 h-20 md:ml-3"
+      src={
+        props.ProductImage?.src ? props.ProductImage.src : props.ProductImage
+      }
       alt="order-item"
     />
   </div>
 );
 
-export const gridOrderStatus = (props) => (
-  <button
-    type="button"
-    style={{ background: props.StatusBg }}
-    className="text-white py-1 px-2 capitalize rounded-2xl text-md"
-  >
-    {props.Status}
-  </button>
-);
+export const gridOrderStatus = (props) => {
+  return (
+    <button
+      type="button"
+      style={{ background: props.StatusBg, padding: "4px 8px" }}
+      className="text-white capitalize rounded-2xl text-md"
+    >
+      <span>{props.Status}</span>
+    </button>
+  );
+};
 
 export const kanbanGrid = [
   { headerText: "To Do", keyField: "Open", allowToggle: true },
@@ -900,6 +905,7 @@ export const ordersGrid = [
     template: gridOrderImage,
     textAlign: "Center",
     width: "120",
+    height: "120",
   },
   {
     field: "OrderItems",
@@ -2039,7 +2045,6 @@ export const ordersData = [
   {
     OrderID: 10248,
     CustomerName: "Vinet",
-
     TotalAmount: 32.38,
     OrderItems: "Fresh Tomato",
     Location: "USA",
