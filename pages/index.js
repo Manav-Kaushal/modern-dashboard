@@ -1,21 +1,21 @@
+import Stacked from "@components/charts/Stacked";
 import Layout from "@components/Layout";
-import Orders from "@sections/Orders";
+import Calendar from "@sections/Calendar";
+import Area from "@sections/charts/area";
+import Bar from "@sections/charts/bar";
+import ColorMapping from "@sections/charts/ColorMapping";
+import Financial from "@sections/charts/financial";
+import Line from "@sections/charts/line";
+import Pie from "@sections/charts/pie";
+import Pyramid from "@sections/charts/pyramid";
+import ColorPicker from "@sections/ColorPicker";
 import Customers from "@sections/Customers";
 import Ecommerce from "@sections/Ecommerce";
-import Employees from "@sections/Employees";
-import { useRouter } from "next/router";
-import Calendar from "@sections/Calendar";
-import Kanban from "@sections/Kanban";
 import Editor from "@sections/Editor";
-import ColorPicker from "@sections/ColorPicker";
-import Area from "@sections/charts/area";
-import Line from "@sections/charts/line";
-import Bar from "@sections/charts/bar";
-import Pie from "@sections/charts/pie";
-import Financial from "@sections/charts/financial";
-import ColorMapping from "@sections/charts/ColorMapping";
-import Pyramid from "@sections/charts/pyramid";
-import Stacked from "@components/charts/Stacked";
+import Employees from "@sections/Employees";
+import Kanban from "@sections/Kanban";
+import Orders from "@sections/Orders";
+import { useRouter } from "next/router";
 
 const Home = () => {
   const { query } = useRouter();
