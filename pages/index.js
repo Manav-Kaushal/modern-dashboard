@@ -1,51 +1,47 @@
-import Navbar from "@components/Navbar";
-import Sidebar from "@components/Sidebar";
-import { useStateContext } from "@context/ContextProvider";
-import { TooltipComponent } from "@syncfusion/ej2-react-popups";
-import { FiSettings } from "react-icons/fi";
+import Layout from "@components/Layout";
+import Orders from "@sections/Orders";
+import Customers from "@sections/Customers";
+import Ecommerce from "@sections/Ecommerce";
+import Employees from "@sections/Employees";
+import { useRouter } from "next/router";
+import Calendar from "@sections/Calendar";
+import Kanban from "@sections/Kanban";
+import Editor from "@sections/Editor";
+import ColorPicker from "@sections/ColorPicker";
+import Area from "@sections/charts/area";
+import Line from "@sections/charts/line";
+import Bar from "@sections/charts/bar";
+import Pie from "@sections/charts/pie";
+import Financial from "@sections/charts/financial";
+import ColorMapping from "@sections/charts/ColorMapping";
+import Pyramid from "@sections/charts/pyramid";
+import Stacked from "@components/charts/Stacked";
 
 const Home = () => {
-  const { activeSidebar } = useStateContext();
+  const { query } = useRouter();
 
   return (
-    <div>
-      <div className="flex relative dark:bg-main-dark-bg">
-        <div className="fixed right-4 bottom-4" style={{ zIndex: 1000 }}>
-          <TooltipComponent content="Settings" position="Top">
-            <button
-              type="button"
-              className="hover:drop-shadow-xl transition duration-300 hover:bg-light-gray text-white p-3 text-3xl"
-              style={{ background: "blue", borderRadius: "50%" }}
-            >
-              <FiSettings />
-            </button>
-          </TooltipComponent>
-        </div>
-
-        {/* Sidebar */}
-        {activeSidebar ? (
-          <div className="w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white">
-            <Sidebar />
-          </div>
-        ) : (
-          <div className="w-0 dark:bg-secondary-dark-bg">
-            <Sidebar />
-          </div>
-        )}
-
-        {/* NavigationBar */}
-        <div
-          className={`dark:bg-main-bg bg-main-bg min-h-screen w-full ${
-            activeSidebar ? "md:ml-72" : "flex-2"
-          }
-          `}
-        >
-          <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full">
-            <Navbar />
-          </div>
-        </div>
+    <Layout>
+      <div>
+        {!query?.key && <Ecommerce />}
+        {query?.key === "ecommerce" && <Ecommerce />}
+        {query?.key === "orders" && <Orders />}
+        {query?.key === "employees" && <Employees />}
+        {query?.key === "customers" && <Customers />}
+        {query?.key === "calendar" && <Calendar />}
+        {query?.key === "kanban" && <Kanban />}
+        {query?.key === "editor" && <Editor />}
+        {query?.key === "color-picker" && <ColorPicker />}
+        {query?.key === "area" && <Area />}
+        {query?.key === "line" && <Line />}
+        {query?.key === "bar" && <Bar />}
+        {query?.key === "pie" && <Pie />}
+        {query?.key === "financial" && <Financial />}
+        {query?.key === "color-mapping" && <ColorMapping />}
+        {query?.key === "pyramid" && <Pyramid />}
+        {query?.key === "stacked" && <Stacked />}
       </div>
-    </div>
+    </Layout>
   );
 };
 
