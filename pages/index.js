@@ -1,6 +1,5 @@
 import Stacked from "@components/charts/Stacked";
 import Layout from "@components/Layout";
-import { useStateContext } from "@context/ContextProvider";
 import Calendar from "@sections/Calendar";
 import Area from "@sections/charts/area";
 import Bar from "@sections/charts/bar";
