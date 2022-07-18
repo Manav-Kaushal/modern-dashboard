@@ -30,7 +30,7 @@ const NavigationButton = ({ title, icon, color, dotColor, cb }) => (
 );
 
 const Navbar = () => {
-  const { activeSidebar, toggleSidebar, isClicked, handleClick } =
+  const { activeSidebar, toggleSidebar, isClicked, handleClick, currentColor } =
     useStateContext();
 
   return (
@@ -38,27 +38,27 @@ const Navbar = () => {
       <NavigationButton
         title="Menu"
         icon={<AiOutlineMenu />}
-        color="blue"
+        color={currentColor}
         cb={toggleSidebar}
       />
       <div className="flex items-center">
         <NavigationButton
           title="Cart"
           icon={<FiShoppingCart />}
-          color="blue"
+          color={currentColor}
           cb={() => handleClick("cart")}
         />
         <NavigationButton
           title="Chat"
           icon={<BsChatLeft />}
-          color="blue"
+          color={currentColor}
           dotColor="#03C9D7"
           cb={() => handleClick("chat")}
         />
         <NavigationButton
           title="Notification"
           icon={<RiNotification3Line />}
-          color="blue"
+          color={currentColor}
           dotColor="#03C9D7"
           cb={() => handleClick("notification")}
         />

@@ -14,8 +14,23 @@ export const ContextProvider = ({ children }) => {
   const [activeSidebar, setActiveSidebar] = useState(true);
   const [isClicked, setIsClicked] = useState(initialState);
   const [isMobile, setIsMobile] = useState(false);
+  const [currentColor, setCurrentColor] = useState("#03C9D7");
+  const [currentMode, setCurrentMode] = useState("Light");
+  const [themeSettingsVisible, setThemeSettingsVisible] = useState(false);
 
   const { width } = useWindowSize();
+
+  const setMode = (e) => {
+    setCurrentMode(e.target.value);
+    localStorage.setItem("thememode", e.target.value);
+    setThemeSettingsVisible(false);
+  };
+
+  const setColor = (color) => {
+    setCurrentColor(color);
+    localStorage.setItem("colorMode", color);
+    setThemeSettingsVisible(false);
+  };
 
   const toggleSidebar = () => {
     setActiveSidebar((prevState) => !prevState);
@@ -43,6 +58,12 @@ export const ContextProvider = ({ children }) => {
         isClicked,
         handleClick,
         isMobile,
+        currentColor,
+        currentMode,
+        themeSettingsVisible,
+        setThemeSettingsVisible,
+        setMode,
+        setColor,
       }}
     >
       {children}
